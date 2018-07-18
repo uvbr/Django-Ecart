@@ -1,0 +1,57 @@
+1.create vitual environment and activate it
+
+	$ virtualenv venv
+
+	cd venv/
+
+	venv $ source bin/activate
+
+	(activate)venv $
+
+2.Install django 
+
+	(activate)venv $ python -m pip install "django<2"
+
+	(activate)venv $ python -m django --version
+
+3.create a django project
+
+	$ django-admin startproject Ecart
+
+	$ python manage.py runserver 8080
+
+	now quit the server(ctrl-z) and 
+
+4.create an app with in the project
+
+	proj1 $ python manage.py startapp EcApp
+
+5.In settings.py in Installed apps add the created app name
+
+		INSTALLED_APPS = [
+	    'django.contrib.admin',
+	    'django.contrib.auth',
+	    'django.contrib.contenttypes',
+	    'django.contrib.sessions',
+	    'django.contrib.messages',
+	    'django.contrib.staticfiles',
+	    'EcApp',
+		]
+
+6.In project urls i.e., Ecart.urls add the path of appname.urls
+
+		    
+		url(r'^ecart/', include('EcApp.urls')),
+
+
+7.In views.py add 
+
+			
+		def index(request):
+
+			return HttpResponse('Welcome')
+
+8.In app urls.py i.e.,EcApp.urls add the path for the views
+
+
+	    url('index', views.index, name='index'),
