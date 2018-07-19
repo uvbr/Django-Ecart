@@ -50,9 +50,47 @@
 		Ecart is the project name, with in that we have
 		
 		a.__init__.py
+
+			An empty file that tells Python that this directory should be considered a Python package	
+
 		b.settings.py
+
+			it contains configuration of django project
+
 		c.urls.py
+
+			we declare urls and map them to corresponding views(functionality)\
+
 		d.wsgi.py
+
+			An entry-point for WSGI-compatible web servers to serve your project
+
+	and 
+
+		manage.py:
+
+			A command-line utility that lets you interact with this Django project in various ways
+
+	Here,
+
+		EcApp is the app created in the Ecart project
+
+		a.__init__.py
+
+			An empty file that tells Python that this directory should be considered a Python package	
+
+		b.admin.py
+
+			django-admin.py is Django’s command-line utility for administrative tasks
+
+		c.models.py:
+
+			It contains stuff related to Database
+
+		d.views.py:
+
+			In views.py, we write the functionality that has to be done.
+
 
 5.In settings.py in Installed apps add the created app name
 
