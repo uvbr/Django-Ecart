@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ecart Registration</title>
+</head>
+<body>
+
+<form action="/ecart/register" method="post">
+{% csrf_token %}
+<h2>Registration page</h2>
+username:<input type="text" name="uname"><br><br>
+email:<input type="text" name="uemail"><br><br>
+password:<input type="password" name="upswd"><br><br>
+<input type="submit" value="Register">
+
+</form>
+
+</body>
+</html>

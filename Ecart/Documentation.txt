@@ -26,6 +26,34 @@
 
 	proj1 $ python manage.py startapp EcApp
 
+
+				Ecart
+			├── EcApp
+			│   ├── __init__.py
+			│   ├── admin.py
+			│   ├── apps.py
+			│   ├── migrations
+			│   │   └── __init__.py
+			│   ├── models.py
+			│   ├── tests.py
+			│   └── views.py
+			├── db.sqlite3
+			├── manage.py
+			└── Ecart
+			    ├── __init__.py
+			    ├── settings.py
+			    ├── urls.py
+			    └── wsgi.py
+
+	Here,
+
+		Ecart is the project name, with in that we have
+		
+		a.__init__.py
+		b.settings.py
+		c.urls.py
+		d.wsgi.py
+
 5.In settings.py in Installed apps add the created app name
 
 		INSTALLED_APPS = [
