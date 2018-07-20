@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Ecart Adminhome</title>
+</head>
+<body>
+<form action="/ecart/adminhome/" method="get">
+<h2>hiii</h2>
+{% block body %}
+
+Available products in the database are<br>
+
+{%for obj in items%}
+
+	<td>{{ obj.id  }}</td>
+	<td>{{ obj.category }}</td>
+	<td>{{ obj.name  }}</td>
+	<td>{{ obj.price }}</td> 
+ 	<td>{{ obj.quant }}</td>
+ 	<td><a href="/ecart/adminhome?action=remove&id={{obj.id}}"><input type="button" value="remove" name="remove"></a></td><br>
+
+{%endfor%}
+
+<br><br>
+
+To create Categories <br><br>
+categoryname:<input type="text" name="cname"><br>
+To create products under above category<br>
+productname:<input type="text" name="pname"><br>
+Availablequantity:<input type="number" name="pquant"><br>
+price:<input type="number" name="pprice"><br><br>
+
+<td><input type="submit" value="create" name="create"><br>
+
+
+{% endblock %}
+</form>
+</body>
+</html>
+

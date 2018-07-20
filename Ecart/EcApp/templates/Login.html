@@ -4,8 +4,8 @@
 	<title>Ecart Login</title>
 </head>
 <body>
-
-<form action="/ecart/login" method="post">
+{{ status }}
+<form action="/ecart/login/" method="get">
 {% csrf_token %}
 <h2>Login page</h2>
 username:<input type="text" name="uname"><br><br>
