@@ -7,6 +7,6 @@ urlpatterns = [
     url('login', views.login),
     url('home', views.home),
     url('adminlogin', views.adminlogin),
-    url('adminhome', views.Adminhome),
+    url('Adminindex', views.Adminindex),
 
 ]
