@@ -68,6 +68,7 @@ def adminlogin(request):
     if request.method =='GET':
         # it checks whether username and password equals to admin
         if 'admin'== request.GET.get('uname') and 'admin' == request.GET.get('upswd') :
+            
             context={   'items':Products.objects.all()  }
             # it prints each and every object in the database
             return render(request,'Adminhome.html',context)
@@ -79,29 +80,33 @@ def adminlogin(request):
 
 def Adminindex(request):
     table={ 'items':Products.objects.all() }
-    if request.method == 'GET':     
+    if request.method == 'POST':     
         # checks whether category exists or not
         # print request.GET['cname']
-        cat = Category.objects.filter(name=request.GET['cname'])
+        try:
+            cat = Category.objects.filter(name=request.POST.get['cname'])
+        except:
+            return render(request,'Adminhome.html',table)
         if len(cat) != 0:
-            cate=Category.objects.get(name=request.GET['cname'])
+            cate=Category.objects.get(name=request.POST.get['cname'])
         # if category doesnot exists,it creates category
         else:
             try:
-                Category.objects.create(name=request.GET['cname'])
-                cate=Category.objects.get(name=request.GET['cname'])
+                Category.objects.create(name=request.POST.get['cname'])
+                cate=Category.objects.get(name=request.POST.get['cname'])
                 #creates products in the respective category 
             except:
                 return render(request,'Adminhome.html',table)
-        item=Products.objects.create(category=cate,name=request.GET['pname'],
-                    quant=request.GET['pquant'],price=request.GET['pprice'])
+        item=Products.objects.create(category=cate,name=request.POST.get['pname'],
+                    quant=request.POST.get['pquant'],price=request.POST.get['pprice'])
         table={
                     'items':Products.objects.all()
                     }
-        return render(request,'Adminhome.html',table)
+    return render(request,'Adminhome.html',table)
 
     # if admin click on remove it removes the product from the data base
     if request.GET.get('action') =='remove':
+        print 'hii'
         id = request.GET.get('id')
         record = Products.objects.get(id=id)
         record.delete()
