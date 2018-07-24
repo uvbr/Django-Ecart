@@ -2,23 +2,22 @@
 <body>
 <form action="/ecart/home"  method="post">
 {% block body %}
-   
+
 
 {%for obj in items%}
 
-	<td>{{ obj.id  }}</td>
 	<td>{{ obj.name  }}</td>
-   	<td>{{ obj.price }}</td> 
+   	<td>{{ obj.price }}</td>
 
  	<td><a href="/ecart/home?action=addtocart&id={{obj.id}}"><input type="button" value="addtocart" name="addtocart" ></a></td>
 	<td><a href="/ecart/home?action=remove&id={{obj.id}}"><input type="button" value="remove" name="remove"></a></td>
  	<td>quantity= {{obj.num}}</td>
  	<td>stock={{obj.quant}}</td>
- 	<td><a href="/ecart/home?action=buy&id={{obj.id}}"><input type="button" value="buy" name="buy"></a></td><br><br><br>  
+ 	<td><a href="/ecart/home?action=buy&id={{obj.id}}"><input type="button" value="buy" name="buy"></a></td><br><br><br>
 
  {%endfor%}
 
-    
+
 {% endblock %}
 
 </form>

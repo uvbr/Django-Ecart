@@ -6,27 +6,26 @@
 <form action="/ecart/Adminindex/" method="post">
 {% block body %}
 
-Available products in the database are<br>
+<h4>Available products in the database are</h4>
 
 {%for obj in items%}
 
-	<td>{{ obj.id  }}</td>
 	<td>{{ obj.category }}</td>
 	<td>{{ obj.name  }}</td>
-	<td>{{ obj.price }}</td> 
+	<td>{{ obj.price }}</td>
  	<td>{{ obj.quant }}</td>
- 	<td><a href="/ecart/Adminindex?action=remove&id={{obj.id}}"><input type="button" value="remove" name="remove"></a></td><br>
+ 	<td><a href="/ecart/Adminindex?action=remove&id={{obj.id}}"><input type="button" value="remove" name="remove"></a></td><br><br>
 
 {%endfor%}
 
 <br><br>
 
-To create Categories <br><br>
-categoryname:<input type="text" name="cname"><br>
-To create products under above category<br>
-productname:<input type="text" name="pname"><br>
-Availablequantity:<input type="number" name="pquant"><br>
-price:<input type="number" name="pprice"><br><br>
+<h4>To create Categories </h4>
+categoryname:<input type="text" name="cname"><br><br>
+<h4>To create products under above category</h4>
+productname:<input type="text" name="pname"><br><br>
+Availablequantity:<input type="number" name="pquant"><br><br>
+price:<input type="number" name="pprice"><br><br><br>
 
 <td><input type="submit" value="create" name="create"><br>
 

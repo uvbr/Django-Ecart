@@ -6,7 +6,7 @@ urlpatterns = [
     url('register', views.register),
     url('login', views.login),
     url('home', views.home),
-    url('adminlogin', views.adminlogin),
+    url('adminauth', views.adminauth),
     url('Adminindex', views.Adminindex),
 
 ]
