@@ -1,5 +1,8 @@
-from django.conf.urls import url,include
+"""urls.py contains the urls and the corresponding views
+which has to be called.
+"""
 
+from django.conf.urls import url
 from . import views
 
 urlpatterns = [
