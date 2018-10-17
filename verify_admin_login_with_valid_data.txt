@@ -1,0 +1,32 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Test Cases ***
+0001
+    Open Browser    https://www.google.com/    ff
+    Sleep    6
+    Input Text    id=lst-ib    plugleads
+    Click Button    xpath=//input[@value='Google Search']
+    sleep    6
+    Wait Until Page Contains    plugleads    10
+    Wait Until Page Contains Element    xpath=//*[@id="rso"]/div[1]/div/div[1]/div/div/h3/a    10
+    Click Element    xpath=//*[@id="rso"]/div[1]/div/div[1]/div/div/h3/a
+    Wait Until Page Contains    plugleads    10
+    Sleep    5
+    Close Browser
+
+plugleads
+    Open Browser    https://google.com    ff
+    Sleep    6
+    Input Text    id=lst-ib    plugleads
+    Click Button    xpath=//input[@value='Google Search']
+    Sleep    3
+    Wait Until Page Contains    plugleads    30
+    Click Element    xpath=//*[@id="rso"]/div[1]/div/div[1]/div/div/h3/a
+
+apache
+    Open Browser    http://192.168.50.114/    ff
+    Sleep    3
+    Wait Until Page Contains    Apache2 Ubuntu Default Page    30
+    Sleep    2
+    Close Browser
